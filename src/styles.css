@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap"); */
+@font-face {
+  font-family: "GTWalsheimi Pro Medium";
+  src: url(./assets/fonts/gt-walsheim-pro/GTWalsheimProMedium.OTF);
+}
+
+@font-face {
+  font-family: "GTWalsheimi Pro Bold";
+  src: url(./assets/fonts/gt-walsheim-pro/GTWalsheimProBold.OTF);
+}
+
+@font-face {
+  font-family: "Proxima Nova Regular";
+  src: url(./assets/fonts/proxima-nova/ProximaNovaRegular.otf);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* font-family: "Source Sans 3"; */
+  box-sizing: border-box;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto !important;
+  overflow-x: hidden;
+}
+
+.clip-section {
+  overflow-y: clip;
+  /* overflow-clip-margin: padding-box; */
+}
+
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.section .slide-in.active.left {
+  transition: all 1s;
+  animation: 1.5s ease-out 0s 1 slideInLeft;
+}
+
+.section .slide-in.active.right {
+  transition: all 1s;
+  animation: 1.5s ease-out 0s 1 slideInRight;
+}
+
+.section .slide-in.active.top {
+  transition: all 1s;
+  animation: 1.5s ease-out 0s 1 slideInTop;
+}
+
+.section .slide-in.active.bottom {
+  transition: all 1s;
+  animation: 1.5s ease-out 0s 1 slideInBottom;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #5e88f3;
+
+  transition: all 1s;
+}

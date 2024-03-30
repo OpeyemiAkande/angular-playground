@@ -1,0 +1,60 @@
+<nav>
+  <app-container>
+    <div class="flex justify-between items-center navbar-component" #nav>
+      <div class="md:h-[5rem] flex items-center">
+        <img
+          class="sm:h-[2rem]"
+          src="../../../../assets/images/2,696logo.svg"
+          alt=""
+        />
+      </div>
+
+      <div class="">
+        <div class="nav-list">
+          <ul
+            class="p-4 flex items-center justify-between font-body-1 text-[1.8rem] gap-x-[40px]"
+          >
+            <li class="relative main-nav-link inline-block">
+              <a href="#" class="flex items-center justify-between">
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="main-nav-link"><a href="#contact"> Contact Us </a></li>
+            <li class="relative main-nav-link">
+              <a href="#about" class="flex items-center justify-between">
+                About
+              </a>
+            </li>
+            <li>
+              <app-button [text]="'Let’s Talk  👋🏾'"></app-button>
+            </li>
+          </ul>
+
+          <div
+            class="lg:block hidden absolute top-[30px] right-[30px] h-[54px] traslate-y-[-5px]"
+            #mobileNavBtn
+            appNavToggleDirective
+          >
+            <button class="p-1 text-t-black-1">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="close"
+                fontIcon="close"
+              ></mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:block hidden" #mobileNavBtn appNavToggleDirective>
+        <button class="p-1">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="menu"
+            fontIcon="menu"
+          ></mat-icon>
+        </button>
+      </div>
+    </div>
+  </app-container>
+</nav>

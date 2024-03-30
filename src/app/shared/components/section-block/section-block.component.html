@@ -1,0 +1,30 @@
+<div
+  class="flex flex-col lg:items-center lg:mb-[5rem] justify-between gap-[2rem]"
+>
+  <app-section-title
+    [title]="block.sectionTitleText"
+    *ngIf="block.sectionTitleType === 'primary'"
+  ></app-section-title>
+  <app-section-title-secondary
+    [title]="block.sectionTitleText"
+    *ngIf="block.sectionTitleType === 'secondary'"
+  ></app-section-title-secondary>
+  <app-primary-heading
+    [title]="block.headingText"
+    [highlightedText]="block.higlightedText"
+    *ngIf="block.headingType === 'primary'"
+  ></app-primary-heading>
+  <app-secondary-heading
+    [title]="block.headingText"
+    [highlightedText]="block.higlightedText"
+    *ngIf="block.headingType === 'secondary'"
+  ></app-secondary-heading>
+  <app-primary-paragraph
+    [text]="block.paragraphText"
+    *ngIf="block.paragraphType === 'primary'"
+  ></app-primary-paragraph>
+  <app-secondary-paragraph
+    [text]="block.paragraphText"
+    *ngIf="block.paragraphType === 'secondary'"
+  ></app-secondary-paragraph>
+</div>

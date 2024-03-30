@@ -1,0 +1,28 @@
+<app-container>
+  <div
+    class="w-full h-[48.1rem] bg-t-tint-4 flex flex-col items-center rounded-[4rem] py-[9.6rem] justify-between"
+  >
+    <div class="max-w-[38rem]">
+      <app-secondary-heading
+        [title]="'Subscribe to our'"
+        [highlightedText]="'Newsletter'"
+        [centered]="true"
+      ></app-secondary-heading>
+    </div>
+    <div class="max-w-[58rem] max-h-[8rem]">
+      <app-input [id]="'1'"></app-input>
+    </div>
+    <app-button
+      [text]="'Subscribe 📩'"
+      [buttonType]="'submit'"
+      [buttonColor]="'bg-t-blue-2'"
+    ></app-button>
+  </div>
+</app-container>
+
+<!-- ${formatPrice ? "pl-9" : "pl-4"}
+          ${errors[id] ? "border-rose-500" : "border-neutral-300"}
+          ${errors[id] ? "focus:border-rose-500" : "focus:border-black"} -->
+
+<!-- label -->
+<!-- ${errors[id] ? "text-rose-500" : "text-zinc-400"} -->

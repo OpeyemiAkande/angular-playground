@@ -1,0 +1,5 @@
+.rotate-z {
+  transform: rotateZ(180deg);
+  margin-top: -12px;
+  opacity: 0.6;
+}
