@@ -1,0 +1,17 @@
+<div id="navbar-breadcrumb" class="flex">
+  <div
+    class="flex items-center"
+    *ngFor="let breadcrumbEl of breadcrumbLoadedData; let last = last"
+  >
+    <h6
+      matRipple
+      [routerLink]="breadcrumbEl?.url"
+      class="text-[1.6rem] sm:text-[1.4rem] font-poppins font-bold py-[.2rem] px-[.5rem] text-black cursor-pointer"
+      [ngClass]="{ 'text-gray-500 pointer-events-none': last }"
+    >
+      {{ breadcrumbEl?.breadcrumb }}
+    </h6>
+
+    <span class="breadcrumb-separator" *ngIf="!last">/</span>
+  </div>
+</div>

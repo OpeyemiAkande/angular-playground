@@ -1,0 +1,11 @@
+<div class="{{ centered ? 'text-center' : 'text-start' }}">
+  <h1
+    class="text-[5rem] lg:text-[3.6rem] font-poppins text-black md:text-center leading-[5rem] sm:leading-[4rem] font-headline-2"
+    [ngClass]="getTextColor()"
+  >
+    {{ title }}
+    <span *ngIf="highlightedText" class="text-t-blue-1 font-headline-1">{{
+      highlightedText
+    }}</span>
+  </h1>
+</div>

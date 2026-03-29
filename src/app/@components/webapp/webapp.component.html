@@ -1,0 +1,58 @@
+<section class="flex overflow-hidden">
+  <aside
+    #aside
+    id="webapp-aside"
+    class="w-full h-full lg:hidden max-h-[100vh] max-w-[24rem]"
+    aria-label="sidebar"
+  >
+    <div class="w-full h-full lg:hidden max-h-[100vh] max-w-[24rem]">
+      <app-sidebar></app-sidebar>
+    </div>
+    <p-sidebar [(visible)]="sidebarVisible">
+      <div class="w-full h-full max-h-[100vh] max-w-[24rem]">
+        <app-sidebar></app-sidebar>
+      </div>
+      <p>aplajdfe</p>
+    </p-sidebar>
+  </aside>
+
+  <main class="w-full">
+    <div>
+      <app-navbar (showSidebar)="onShowSidebar($event)"></app-navbar>
+    </div>
+
+    <p-sidebar [(visible)]="sidebarVisible">
+      <ng-template pTemplate="header" class="sm:hidden">
+        <div
+          id="logo-container"
+          class="w-full mb-5 border-b border-solid p-5 pb-[1.6rem] flex items-center gap-[1rem] border-gray-200"
+        >
+          <div class="w-[4rem] h-[2rem] sm:hidden">
+            <img
+              class="w-full h-full object-cover"
+              src="../../../../assets/images/bookcentral-primary.png"
+              alt=""
+            />
+          </div>
+
+          <div
+            class="text-[2rem] sm:text-[1.6rem] text-primary-500 font-poppins font-medium"
+          >
+            <p>BookCentral</p>
+          </div>
+        </div>
+      </ng-template>
+      <app-sidebar></app-sidebar>
+    </p-sidebar>
+
+    <div class="w-full main-height">
+      <div #mainContent class="p-[1.6rem]">
+        <div>
+          <p-toast></p-toast>
+          <router-outlet #outlet="outlet" (activate)="onRouterActivate($event)">
+          </router-outlet>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

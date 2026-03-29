@@ -1,0 +1,8 @@
+<div
+  class="overflow-hidden text-sm transition-all"
+  [ngClass]="{ hidden: !isOpen }"
+>
+  <div class="pb-4 pt-0" [ngClass]="className">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<section id="side-bar" class="w-[full] h-[100vh]">
+  <div
+    id="logo-container"
+    class="w-full border-b sm:mb-0 sm:hidden border-solid p-5 pb-[1.6rem] flex items-center gap-[1rem] border-gray-200"
+  >
+    <div class="w-[4rem] h-[2rem] sm:hidden">
+      <img
+        class="w-full h-full object-cover"
+        src="../../../../assets/images/bookcentral-primary.png"
+        alt=""
+      />
+    </div>
+
+    <div
+      class="text-[2rem] sm:text-[1.6rem] text-primary-500 font-poppins font-medium"
+    >
+      <p>BookCentral</p>
+    </div>
+  </div>
+  <div
+    class="pl-[1.4rem] flex max-h-[93vh] pb-8 flex-col justify-between pt-5 sm:pt-0 sm:pl-0 sm:border-none border-r h-full sm:h-0 border-gray-200 border-solid"
+  >
+    <div class="flex flex-col space-between">
+      <div class="mb-5 sm:hidden">
+        <p class="text-[1.4rem] font-poppins">HOME</p>
+      </div>
+      <ul>
+        <li
+          #bookManagement="routerLinkActive"
+          class="w-full px-[1.4rem] py-[.875rem] bg-inherit transition-all hover:bg-primary-highlight"
+          [ngClass]="[
+            bookManagement.isActive
+              ? 'bg-primary-highlight border-l-4 border-solid border-primary-500'
+              : 'bg-inherit'
+          ]"
+          matRipple
+          routerLink="/app/book-management"
+          routerLinkActive="active"
+        >
+          <div class="link-icon flex items-center gap-[1rem]">
+            <div
+              *ngIf="!bookManagement.isActive"
+              class="text-black font-poppins font-normal sm:hidden text-[1.4rem]"
+            >
+              <img src="../../../../assets/images/icons/books.svg" alt="" />
+            </div>
+            <div
+              *ngIf="bookManagement.isActive"
+              class="text-black font-poppins font-normal sm:hidden text-[1.4rem]"
+            >
+              <img
+                src="../../../../assets/images/icons/books-active.svg"
+                alt=""
+              />
+            </div>
+            <div class="text-black font-poppins font-normal text-[1.4rem]">
+              Books Management
+            </div>
+          </div>
+        </li>
+        <li
+          #dashboard="routerLinkActive"
+          class="w-full px-[1.4rem] py-[.875rem] bg-inherit transition-all hover:bg-primary-highlight"
+          [ngClass]="[
+            dashboard.isActive
+              ? 'bg-primary-highlight border-l-4 border-solid border-primary-500'
+              : 'bg-inherit'
+          ]"
+          matRipple
+          routerLink="/app/dashboard"
+          routerLinkActive="active"
+        >
+          <div class="link-icon flex items-center gap-[1rem]">
+            <div *ngIf="!dashboard.isActive" class="sm:hidden">
+              <img src="../../../../assets/images/icons/dashboard.svg" alt="" />
+            </div>
+            <div *ngIf="dashboard.isActive" class="sm:hidden">
+              <img
+                src="../../../../assets/images/icons/dashboard-active.svg"
+                alt=""
+              />
+            </div>
+            <div
+              class="text-black font-poppins font-normal text-[1.4rem] sm:text-[1.2rem]"
+            >
+              Dashboard
+            </div>
+          </div>
+        </li>
+        <li
+          #userManagement="routerLinkActive"
+          class="w-full px-[1.4rem] py-[.875rem] bg-inherit transition-all hover:bg-primary-highlight"
+          [ngClass]="[
+            userManagement.isActive
+              ? 'bg-primary-highlight border-l-4 border-solid border-primary-500'
+              : 'bg-inherit'
+          ]"
+          matRipple
+          routerLink="/app/user-management"
+          routerLinkActive="active"
+        >
+          <div class="link-icon flex items-center gap-[1rem]">
+            <div
+              *ngIf="!userManagement.isActive"
+              class="text-black font-poppins font-normal sm:hidden text-[1.4rem]"
+            >
+              <img src="../../../../assets/images/icons/users.svg" alt="" />
+            </div>
+            <div
+              *ngIf="userManagement.isActive"
+              class="text-black font-poppins font-normal sm:hidden text-[1.4rem]"
+            >
+              <img
+                src="../../../../assets/images/icons/users-active.svg"
+                alt=""
+              />
+            </div>
+            <div class="text-black font-poppins font-normal text-[1.4rem]">
+              User Management
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="w-full flex gap-4 cursor-pointer items-center pl-5 py-3 text-[1.4rem] font-poppins text-black hover:bg-danger-100"
+      (click)="signOut()"
+    >
+      <img src="../../../../assets/images/icons/logout.svg" alt="" />
+      <p>Sign out</p>
+    </div>
+  </div>
+  <p-toast></p-toast>
+</section>

@@ -1,0 +1,96 @@
+<app-dropdown-menu
+  [items]="dropdownItems"
+  (itemSelected)="onItemSelected($event)"
+  (openChange)="onOpenChange($event)"
+>
+  <button
+    slot="trigger"
+    class="px-4 py-2 bg-primary text-primary-foreground rounded-md"
+  >
+    Open Menu
+  </button>
+</app-dropdown-menu>
+
+<section class="w-full h-[100vh] flex">
+  <div class="w-full h-full flex items-end justify-center">
+    <div
+      class="flex justify-center w-[80%] h-[62.2rem] p-[2.8rem] min-w-[30.2rem] shadow-sm"
+    >
+      <div class="flex flex-col w-full max-w-[42rem]">
+        <div class="w-full flex flex-col items-center mb-[1.4rem]">
+          <div class="flex items-center gap-[1.4rem] mb-[.7rem]">
+            <div class="w-[10rem] h-[5rem] sm:w-[5rem] sm:h-[2.5rem]">
+              <img
+                class="w-full h-full"
+                src="../../../assets/images/bookcentral-primary.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="text-black font-poppins font-semibold sm:text-[2rem] text-[2.8rem]"
+            >
+              BookCentral
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <h3 class="text-black font-poppins font-light text-[2.8rem]">
+              Sign In
+            </h3>
+            <p class="text-black font-poppins font-normal text-[1.4rem]">
+              Login to stay connected
+            </p>
+          </div>
+        </div>
+
+        <!-- Sign-in form starts -->
+        <div class="w-full mb-5">
+          <app-input
+            [label]="'Email'"
+            [inputId]="'email'"
+            [placeholder]="'email@example.com'"
+            [control]="email"
+          ></app-input>
+          <app-input
+            [label]="'Password'"
+            [inputId]="'password'"
+            [placeholder]="'xxxxxx'"
+            [control]="password"
+          ></app-input>
+        </div>
+
+        <div>
+          <p>Plaintext: {{ plaintext }}</p>
+          <p>Encrypted: {{ encrypted }}</p>
+          <p>Decrypted: {{ decrypted }}</p>
+        </div>
+        <!-- Sign-in form ends -->
+
+        <!-- Remember -->
+        <div class="full flex justify-end">
+          <div></div>
+          <a
+            class="text-primary-500 cursor-pointer text-[1.2rem] font-poppins font-medium"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <!-- Remember -->
+
+        <!-- Sign-in button -->
+        <div (click)="signInUser()" class="flex justify-center mt-[1.4rem]">
+          <app-button [text]="'Sign in'" [disabled]="formInvalid"></app-button>
+        </div>
+        <!-- Sign-in button -->
+
+        <p-toast></p-toast>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="w-full lg:hidden h-full">
+    <img
+      class="w-full h-full object-cover xl:object-contain"
+      src="../../../assets/images/bookcentral-hero.png"
+      alt=""
+    />
+  </div> -->
+</section>

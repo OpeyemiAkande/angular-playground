@@ -1,0 +1,22 @@
+<button
+  class="flex rounded-[0.35rem] font-poppins text-[1.6rem] font-normal"
+  [ngClass]="[
+    bgColor ? bgColor : '',
+    textColor,
+    outline ? outlineStyle : '',
+    rounded ? 'rounded-full' : '',
+    block ? 'w-full' : '',
+    size === 'sm'
+      ? 'px-[1.4rem] py-[.525rem] text-[1.14rem]'
+      : size === 'lg'
+      ? 'px-[2.45rem] py-[1.07rem] text-[1.6rem]'
+      : 'px-[2.1rem] py-[.7rem] text-[1.4rem]',
+    hoverColor ? 'hover:' + hoverColor : '',
+    disabled ? 'bg-primary-400' : ''
+  ]"
+  [type]="btnType"
+  [disabled]="disabled"
+  (click)="onClick()"
+>
+  <span>{{ text }}</span>
+</button>

@@ -1,0 +1,84 @@
+<section>
+  <form [formGroup]="addFormGroup">
+    <div class="grid grid-cols-2 gap-3 w-full max-w-[100rem]">
+      <app-input
+        [placeholder]="'Enter book id'"
+        [label]="'Id'"
+        [control]="getControl('id')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter book Title'"
+        [label]="'Title'"
+        [control]="getControl('title')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter author name'"
+        [label]="'Author'"
+        [control]="getControl('author')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter ISBN'"
+        [label]="'Isbn'"
+        [control]="getControl('isbn')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Genre'"
+        [label]="'Genre'"
+        [control]="getControl('genre')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter publisher name (optional)'"
+        [label]="'Publisher'"
+        [control]="getControl('publisher')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter publicationDate'"
+        [label]="'Publication Date'"
+        [type]="'date'"
+        [control]="getControl('publicationDate')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Enter total available copies'"
+        [label]="'Available Copies'"
+        [control]="getControl('availableCopies')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Total copies'"
+        [label]="'Total Copies'"
+        [type]="'number'"
+        [control]="getControl('totalCopies')"
+      ></app-input>
+      <app-input
+        [placeholder]="'https://www.imagesite.com/image (optional)'"
+        [label]="'Cover ImageUrl'"
+        [control]="getControl('coverImageUrl')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Language'"
+        [label]="'Language'"
+        [control]="getControl('language')"
+      ></app-input>
+      <app-input
+        [placeholder]="'Number of pages'"
+        [label]="'Pages'"
+        [type]="'number'"
+        [control]="getControl('pages')"
+      ></app-input>
+      <div class="row-span-1">
+        <app-input
+          [placeholder]="'Book summary (optional)'"
+          [label]="'Summary'"
+          [type]="'textarea'"
+          [control]="getControl('summary')"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="inline-block" (click)="onSubmit()">
+      <app-button
+        [disabled]="!addFormGroup.valid"
+        [text]="'submit'"
+      ></app-button>
+    </div>
+  </form>
+</section>

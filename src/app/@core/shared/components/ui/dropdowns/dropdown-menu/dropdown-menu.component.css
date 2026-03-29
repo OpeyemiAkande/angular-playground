@@ -1,0 +1,105 @@
+.dropdown-content {
+  background-color: var(
+    --popover
+  ); /* Replace with your color variable or value */
+  color: var(--popover-foreground);
+  z-index: 50;
+  max-height: 24rem;
+  min-width: 8rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color); /* Replace with your border color */
+  padding: 0.25rem;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Example shadow */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+}
+
+.dropdown-item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-transition: background 0.2s, color 0.2s;
+  -o-transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s;
+}
+.dropdown-item:focus {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+.dropdown-item:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.dropdown-item-destructive {
+  color: var(--destructive);
+}
+.dropdown-item-destructive:focus {
+  background-color: rgba(var(--destructive), 0.1);
+  color: var(--destructive);
+}
+
+.dropdown-item-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.dropdown-item-icon {
+  pointer-events: none;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.dropdown-shortcut {
+  color: var(--muted-foreground);
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.dropdown-sub-trigger[data-state="open"] {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu-content {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  z-index: 50;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  padding: 0.25rem;
+  -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Example shadow */
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 4px;
+}

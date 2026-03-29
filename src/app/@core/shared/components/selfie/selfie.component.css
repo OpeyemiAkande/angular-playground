@@ -1,0 +1,72 @@
+.selfie-container {
+  width: 100%;
+  height: 100%;
+  /* height: 460px; */
+}
+
+.canvas {
+  height: 80%;
+  width: 100%;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  position: relative;
+  border: 1px dashed #641873;
+}
+
+video {
+  -webkit-transform: scale(1.05, 1);
+  -ms-transform: scale(1.05, 1);
+  transform: scale(1.05, 1);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper video {
+  -webkit-transform: scale(1.05, 1) !important;
+  -ms-transform: scale(1.05, 1) !important;
+  transform: scale(1.05, 1) !important;
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btns-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 12px;
+}
+
+.btn--snap {
+  background-color: #641873;
+  color: #fff;
+}
+
+.btn--retake {
+  background-color: white;
+  border: 1px solid #641873;
+  color: #641873;
+}

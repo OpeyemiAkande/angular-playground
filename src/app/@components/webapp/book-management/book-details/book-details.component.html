@@ -1,0 +1,103 @@
+<section class="flex flex-col font-poppins">
+  <div class="flex md:flex-col gap-9">
+    <div class="w-[24.8rem] h-[33rem]">
+      <img
+        class="w-full h-full object-cover"
+        src="{{ book.coverImageUrl! }}"
+        alt=""
+      />
+    </div>
+    <div>
+      <div class="mb-3">
+        <app-tertiary-heading [title]="book.title"></app-tertiary-heading>
+      </div>
+
+      <div class="italic">
+        <app-secondary-paragraph
+          [text]="book!.author"
+          [textColor]="'text-info-500'"
+        ></app-secondary-paragraph>
+      </div>
+
+      <div class="max-w-[80rem] mt-5">
+        <app-secondary-paragraph
+          [text]="book!.summary! + loremText"
+        ></app-secondary-paragraph>
+      </div>
+
+      <ul
+        class="mt-[4.4rem] list-none w-full max-w-[65rem] grid grid-cols-2 sm:grid-cols-1 justify-between font-light"
+      >
+        <li
+          *ngFor="let property of otherDetails"
+          class="flex justify-between max-w-[25rem] sm:max-w-full sm:w-[80%] items-center"
+        >
+          <span class="font-light text-[1.4rem]">{{ property["name"] }}:</span>
+          <span class="font-light text-right text-black text-[1.4rem]">
+            {{ "   " + property["value"] }}</span
+          >
+        </li>
+      </ul>
+
+      <span class="inline-block mt-[2.4rem]">
+        <app-button
+          (click)="onEdit()"
+          *ngIf="!showEdit"
+          [text]="'Edit'"
+        ></app-button>
+        <app-button
+          (click)="onCancel()"
+          *ngIf="showEdit"
+          [text]="'Cancel'"
+          [outline]="true"
+          [outlineColor]="'danger-500'"
+          [textColor]="'text-danger-500'"
+        ></app-button>
+      </span>
+
+      <div
+        *ngIf="showEdit"
+        class="mt-[4.4rem] mb-[3rem] max-w-[60rem] sm:w-full self-end"
+      >
+        <form [formGroup]="editForm">
+          <div>
+            <app-input
+              [label]="'Title'"
+              [label]="'Title'"
+              [control]="getControl('title')"
+            ></app-input>
+          </div>
+          <div>
+            <app-input
+              [label]="'Author'"
+              [control]="getControl('author')"
+            ></app-input>
+          </div>
+          <div>
+            <app-input
+              [label]="'Genre'"
+              [control]="getControl('genre')"
+            ></app-input>
+          </div>
+          <div>
+            <app-input
+              [label]="'Publisher'"
+              [control]="getControl('publisher')"
+            ></app-input>
+          </div>
+          <div>
+            <app-input
+              [label]="'Available Copies'"
+              [control]="getControl('availableCopies')"
+            ></app-input>
+          </div>
+
+          <span (click)="onSubmit()" class="mt-[2rem] inline-block">
+            <app-button [text]="'Submit'"></app-button>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p-toast></p-toast>
+</section>

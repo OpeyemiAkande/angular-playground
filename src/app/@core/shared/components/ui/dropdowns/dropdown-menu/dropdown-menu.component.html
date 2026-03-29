@@ -1,0 +1,138 @@
+<div class="relative inline-block" #dropdownContainer>
+  <!-- Trigger -->
+  <button
+    #trigger
+    type="button"
+    class="dropdown-trigger"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-haspopup]="true"
+    (click)="toggle()"
+    (keydown)="onTriggerKeydown($event)"
+  >
+    <ng-content select="[slot=trigger]"></ng-content>
+  </button>
+
+  <!-- Backdrop -->
+  <div *ngIf="isOpen" class="fixed inset-0 z-40" (click)="close()"></div>
+
+  <!-- Content -->
+  <div
+    *ngIf="isOpen"
+    #content
+    class="dropdown-content"
+    [class]="contentClasses"
+    [@dropdownAnimation]="isOpen ? 'open' : 'closed'"
+    [style.transform-origin]="transformOrigin"
+    role="menu"
+    [attr.aria-labelledby]="triggerId"
+  >
+    <ng-container *ngFor="let item of items; trackBy: trackByFn">
+      <div
+        *ngIf="item.separator"
+        class="bg-border -mx-1 my-1 h-px"
+        role="separator"
+      ></div>
+
+      <div
+        *ngIf="!item.separator && !item.children"
+        class="dropdown-item"
+        [class.dropdown-item-destructive]="item.destructive"
+        [class.dropdown-item-disabled]="item.disabled"
+        [attr.role]="item.disabled ? null : 'menuitem'"
+        [attr.tabindex]="item.disabled ? -1 : 0"
+        (click)="onItemClick(item, $event)"
+        (keydown)="onItemKeydown($event, item)"
+      >
+        <span
+          *ngIf="item.icon"
+          [innerHTML]="item.icon"
+          class="dropdown-item-icon"
+        ></span>
+        {{ item.label }}
+        <span *ngIf="item.shortcut" class="dropdown-shortcut">{{
+          item.shortcut
+        }}</span>
+      </div>
+
+      <!-- Submenu -->
+      <div
+        *ngIf="!item.separator && item.children"
+        class="dropdown-submenu"
+        [class.dropdown-item-disabled]="item.disabled"
+        (mouseenter)="openSubmenu(item)"
+        (mouseleave)="closeSubmenu()"
+      >
+        <div
+          class="dropdown-item dropdown-sub-trigger"
+          [attr.role]="item.disabled ? null : 'menuitem'"
+          [attr.tabindex]="item.disabled ? -1 : 0"
+          [attr.aria-haspopup]="true"
+          [attr.aria-expanded]="activeSubmenu === item"
+          (keydown)="onSubmenuKeydown($event, item)"
+        >
+          <span
+            *ngIf="item.icon"
+            [innerHTML]="item.icon"
+            class="dropdown-item-icon"
+          ></span>
+          {{ item.label }}
+          <svg
+            class="ml-auto size-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+
+        <!-- Submenu Content -->
+        <div
+          *ngIf="activeSubmenu === item"
+          class="dropdown-submenu-content"
+          [@dropdownAnimation]="'open'"
+          role="menu"
+        >
+          <ng-container
+            *ngFor="let subItem of item.children; trackBy: trackByFn"
+          >
+            <div
+              *ngIf="subItem.separator"
+              class="bg-border -mx-1 my-1 h-px"
+              role="separator"
+            ></div>
+
+            <div
+              *ngIf="!subItem.separator"
+              class="dropdown-item"
+              [class.dropdown-item-destructive]="subItem.destructive"
+              [class.dropdown-item-disabled]="subItem.disabled"
+              [attr.role]="subItem.disabled ? null : 'menuitem'"
+              [attr.tabindex]="subItem.disabled ? -1 : 0"
+              (click)="onItemClick(subItem, $event)"
+              (keydown)="onItemKeydown($event, subItem)"
+            >
+              <span
+                *ngIf="subItem.icon"
+                [innerHTML]="subItem.icon"
+                class="dropdown-item-icon"
+              ></span>
+              {{ subItem.label }}
+              <span *ngIf="subItem.shortcut" class="dropdown-shortcut">{{
+                subItem.shortcut
+              }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Custom content slot -->
+    <ng-content></ng-content>
+  </div>
+</div>

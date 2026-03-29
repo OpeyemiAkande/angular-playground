@@ -1,0 +1,9 @@
+<div class="flex">
+  <button
+    class="flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline"
+    [ngClass]="className"
+  >
+    <ng-content></ng-content>
+    <span [ngClass]="{ 'rotate-180': isOpen }">▼</span>
+  </button>
+</div>
