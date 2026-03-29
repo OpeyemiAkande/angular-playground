@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-medium-icon',
   templateUrl: './medium-icon.component.html',
-  styleUrls: ['./medium-icon.component.css']
+  styleUrls: ['./medium-icon.component.css'],
 })
 export class MediumIconComponent {
   @Input() iconUrl!: string;
@@ -11,6 +11,7 @@ export class MediumIconComponent {
   @Input() navUrl?: string;
 
   getBackgroundColor(): string {
+    // console.log(object)
     return this.backgroundColor ? this.backgroundColor : 'bg-white';
   }
 }
