@@ -1,17 +1,5 @@
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {
-  Component,
-  AfterViewInit,
-  ElementRef,
-  EventEmitter,
-  Inject,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import Webcam from 'webcam-easy';
-import { BlurDetectionService } from './../../services/utility/blur-detection.service';
-// import { NotificationService } from '../../services/notification.service';
+import { AfterViewInit, Component } from '@angular/core';
+
 @Component({
   selector: 'app-selfie',
   templateUrl: './selfie.component.html',
